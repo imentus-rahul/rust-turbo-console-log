@@ -94,11 +94,11 @@ export class JSDebugMessage extends DebugMessage {
     debuggingMsgContent: string,
     spacesBeforeMsg: string,
   ): string {
-    const wrappingMsg = `console.${extensionProperties.logType}(${
+    const wrappingMsg = `println!(${
       extensionProperties.quote
     }${extensionProperties.logMessagePrefix} ${'-'.repeat(
       debuggingMsgContent.length - 16,
-    )}${extensionProperties.logMessagePrefix}${extensionProperties.quote})${
+    )}${extensionProperties.logMessagePrefix} {:?} ${extensionProperties.quote})${
       extensionProperties.addSemicolonInTheEnd ? ';' : ''
     }`;
     const debuggingMsg: string = extensionProperties.wrapLogMessage
